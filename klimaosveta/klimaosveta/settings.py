@@ -1,4 +1,5 @@
 from decouple import config
+import os
 
 """
 Django settings for klimaosveta project.
@@ -128,6 +129,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
+STATICFILES_DIRS = [
+    #os.path.join(BASE_DIR, "static"),
+    '/home/enki/kod/klimaosveta/static/',
+
+]
+
+
 STATIC_URL = "static/"
 
 # Default primary key field type
@@ -135,4 +144,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SITE_ID = 1
+SITE_ID = 2
