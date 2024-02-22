@@ -10,13 +10,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-    <title>{{ flatpage.title }}</title>
+    <title></title>
 </head>
 <body>
 
-{{ flatpage.content }}
+{{ page.html|safe }}
+
+<div class="contact-form">
+
+<form id="contact-form" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-field half-width">
+            {{ form.name }}
+        </div>
+        <div class="form-field half-width">
+            {{ form.email }}
+        </div>
+    </div>
+    <div class="form-field">
+        {{ form.message }}
+    </div>
+    <button class="basicbutton graybutton" type="submit">Odeslat</button>
+</form>
 
 
+
+
+</form>
+</div>
 
 
 
