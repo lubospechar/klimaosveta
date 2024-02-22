@@ -12,6 +12,10 @@ body {
   font-family: 'EB Garamond', serif;
 }
 
+.section {
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
 
 #video-horizontal {
   display: block;
@@ -82,8 +86,13 @@ a:hover {
   margin-top: 10vw;
 }
 
+.margintop5 {
+  margin-top: 5vw;
+}
 
-
+.margintop3 {
+  margin-top: 3vw;
+}
 
 .link-container {
     margin-top: 5vw;
@@ -197,6 +206,10 @@ a:hover {
   flex: 1;
 }
 
+.vertical-center {
+  align-items: center;
+}
+
 .portrait-container h1 {
   margin: 7vw 2vw 2vw 2vw;
 }
@@ -270,3 +283,66 @@ a:hover {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
+
+.checklist {
+    list-style-type: none;
+    padding: 0;
+}
+
+.checklist li::before {
+    content: "✓\0020"; /
+    color: green;
+    font-weight: bold;
+}
+
+.lector-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.lector-content {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px; /* Přidává mezery mezi lektory */
+}
+
+.lector-image {
+    flex: 3;
+    max-width: 30%; /* Obrázek zabírá cca 1/5 šířky */
+    margin-right: 20px; /* Přidává mezeru mezi obrázkem a textem */
+}
+
+.lector-text {
+    flex: 7; /* Text zabírá zbytek místa */
+    text-align: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.lector-text h3 {
+  font-weight: normal;
+  margin-bottom: 1vw;
+  font-size: 1.7vw;
+}
+
+.lector-text p {
+  margin-bottom: 1vw;
+  font-size: 1.2vw;
+}
+
+.img-center {
+  display: flex;        /* Zapne flexbox */
+  justify-content: center; /* Horizontálně vystředí obsah */
+  align-items: center;     /* Vertikálně vystředí obsah */
+  width: 100%;          /* Nastaví šířku kontejneru na 100%, nebo na konkrétní hodnotu dle potřeby */
+  height: 30vw;        /* Příklad výšky kontejneru, upravte dle potřeby */ */
+}
+
+.img-center img {
+  max-width: 100%;      /* Obrázek se přizpůsobí šířce kontejneru */
+  max-height: 100%;     /* Obrázek se přizpůsobí výšce kontejneru */
+}
+

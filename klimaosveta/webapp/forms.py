@@ -1,16 +1,17 @@
 from django import forms
+from webapp.models import Message
 
-class ContactForm(forms.Form):
-    name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'placeholder': 'Jméno'}),
-        label=""
-    )
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': 'Email'}),
-        label=""
-    )
-    message = forms.CharField(
-        widget=forms.Textarea(attrs={'placeholder': 'Zpráva'}),
-        label=""
-    )
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['name', 'email', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Jméno', 'label': ''}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Email', 'label': ''}),
+            'message': forms.Textarea(attrs={'placeholder': 'Zpráva', 'label': ''}),
+        }
+        labels = {
+            'name': '',
+            'email': '',
+            'message': '',
+        }

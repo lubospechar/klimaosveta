@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.flatpages",
     'htmlmin',
     "codemirror2",
+    'imagekit',
     "webapp",
 
 ]
@@ -150,3 +151,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SITE_ID = 2
 
 HTML_MINIFY = False
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
