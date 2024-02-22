@@ -136,7 +136,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     #os.path.join(BASE_DIR, "static"),
-    '/home/enki/kod/klimaosveta/static/',
+    config('EXTRA_STATIC'),
 
 ]
 
@@ -153,4 +153,4 @@ SITE_ID = 2
 HTML_MINIFY = False
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = config('MEDIA_ROOT')
