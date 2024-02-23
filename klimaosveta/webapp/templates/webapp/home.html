@@ -1,6 +1,6 @@
 {% extends 'webapp/base.html' %}
 
-{% block title %}Název Stránky{% endblock %}
+{% block title %}{{ basic_site.title }}{% endblock %}
 
 {% block content %}
 {{ page.html|safe }}
