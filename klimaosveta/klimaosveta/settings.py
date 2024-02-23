@@ -135,14 +135,13 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    #os.path.join(BASE_DIR, "static"),
     config('EXTRA_STATIC'),
 
 ]
 
 
 STATIC_URL = "static/"
-STATIC_ROOT = config('STATIC_ROOT'),
+STATIC_ROOT = config('STATIC_ROOT')
 
 
 # Default primary key field type
