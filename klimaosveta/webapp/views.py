@@ -1,7 +1,8 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import redirect
 from webapp.models import BasicSite, Course, Lector
 from webapp.forms import ContactForm
+from django.shortcuts import get_object_or_404
 
 class Home(TemplateView):
     template_name = 'webapp/home.html'
@@ -19,6 +20,16 @@ class Home(TemplateView):
             return redirect('home')
 
         return self.render_to_response(self.get_context_data(form=form))
+
+
+
+class AboutView(DetailView):
+    model = BasicSite
+    template_name = 'webapp/about.html'
+    context_object_name = 'basic_site'
+
+    def get_object(self):
+        return get_object_or_404(BasicSite, name='about')
 
 
 class CourseListView(ListView):
