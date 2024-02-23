@@ -142,7 +142,7 @@ STATICFILES_DIRS = [
 
 
 STATIC_URL = "static/"
-STATIC_ROOT = config('EXTRA_ROOT'),
+STATIC_ROOT = config('STATIC_ROOT'),
 
 
 # Default primary key field type
