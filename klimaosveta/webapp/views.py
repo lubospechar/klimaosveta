@@ -21,6 +21,22 @@ class Home(TemplateView):
 
         return self.render_to_response(self.get_context_data(form=form))
 
+class Region(TemplateView):
+    template_name = 'webapp/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page'] = BasicSite.objects.get(name='region')
+        context['form'] = ContactForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+        return self.render_to_response(self.get_context_data(form=form))
 
 
 class AboutView(DetailView):

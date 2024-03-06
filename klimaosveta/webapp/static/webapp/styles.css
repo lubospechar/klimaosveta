@@ -45,7 +45,7 @@ h1 {
 
 h2 {
   font-weight: normal;
-  font-size: 1.9vw;
+  font-size: 1.65vw;
   margin-bottom: 0.5vw;
 }
 
@@ -96,6 +96,8 @@ a:hover {
 
 .link-container {
     margin-top: 5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -168,6 +170,10 @@ a:hover {
 .lecture-margin {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.link-lecture {
+  width: 33.3%
 }
 
 .link-lecture img  {
@@ -350,4 +356,46 @@ a:hover {
   max-width: 100%;      /* Obrázek se přizpůsobí šířce kontejneru */
   max-height: 100%;     /* Obrázek se přizpůsobí výšce kontejneru */
 }
+
+
+.colab-container {
+    margin-top: 5vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.colab-a {
+  width: 35%;
+  text-align: right;
+  margin-right: 2vw;
+}
+
+.colab-c {
+  width: 35%;
+  text-align: left;
+}
+
+.colab-a img {
+  width: 20vw;
+}
+
+.colab-c img {
+  width: 20vw;
+}
+
+
+
+.colab-b {
+  width: 65%;
+  text-align: left;
+}
+
+.marginleft10 {
+  margin-left: 10vw;
+}
+
 

@@ -6,24 +6,26 @@
 {{ page.html|safe }}
 
 
-<div class="section center margintop10">
+    {% if form %}
+    <div class="section center margintop10">
 
-<div class="contact-form">
-<form id="contact-form" method="post">
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="form-field half-width">
-            {{ form.name }}
+    <div class="contact-form">
+    <form id="contact-form" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-field half-width">
+                {{ form.name }}
+            </div>
+            <div class="form-field half-width">
+                {{ form.email }}
+            </div>
         </div>
-        <div class="form-field half-width">
-            {{ form.email }}
+        <div class="form-field">
+            {{ form.message }}
         </div>
+        <button class="basicbutton graybutton" type="submit">Odeslat</button>
+    </form>
     </div>
-    <div class="form-field">
-        {{ form.message }}
     </div>
-    <button class="basicbutton graybutton" type="submit">Odeslat</button>
-</form>
-</div>
-</div>
+    {% endif %}
 {% endblock %}
