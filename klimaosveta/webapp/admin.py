@@ -3,7 +3,7 @@ from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
 from django.contrib.flatpages.models import FlatPage
 from django import forms
 from codemirror2.widgets import CodeMirrorEditor
-from webapp.models import BasicSite, Message, Course, Lector
+from webapp.models import BasicSite, Message, Course, Lector, Region, CourseDetail, CourseParticipant
 from django.utils.html import format_html
 from imagekit.admin import AdminThumbnail
 
@@ -54,7 +54,7 @@ class CourseAdmin(admin.ModelAdmin):
     readonly_fields = ('image_optimal_preview',)
     fieldsets = (
         (None, {
-            'fields': ('headline', 'html', 'image', 'image_on_left', 'order', 'image_optimal_preview'),
+            'fields': ('headline', 'html', 'image', 'shortcut', 'image_on_left', 'order', 'image_optimal_preview'),
         }),
     )
 
@@ -83,3 +83,32 @@ class LectorAdmin(admin.ModelAdmin):
         return obj.about[:75] + '...' if len(obj.about) > 75 else obj.about
     about_shortened.short_description = 'About'
 
+
+class CourseDetailInline(admin.TabularInline):
+    model = CourseDetail
+    extra = 1  # Kolik prázdných formulářů pro nové záznamy se má zobrazit
+
+
+
+class CourseParticipantInline(admin.TabularInline):
+    model = CourseParticipant
+    extra = 1  # Kolik prázdných formulářů pro nové záznamy se má zobrazit
+
+@admin.register(Region)
+class RegionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
+    inlines = [CourseDetailInline]  # Přidání inline
+
+@admin.register(CourseDetail)
+class CourseDetailAdmin(admin.ModelAdmin):
+    list_display = ('region', 'date', 'course', 'lector', 'max_capacity', 'current_capacity')
+    list_filter = ('region', 'date', 'course')
+    search_fields = ('region__name', 'course__name', 'lector__name')
+    inlines = [CourseParticipantInline]
+
+@admin.register(CourseParticipant)
+class CourseParticipantAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'region', 'email', 'phone', 'confirm')
+    list_filter = ('region', 'confirm')
+    search_fields = ('first_name', 'last_name', 'email')

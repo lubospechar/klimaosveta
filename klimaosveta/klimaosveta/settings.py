@@ -136,7 +136,6 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     config('EXTRA_STATIC'),
-
 ]
 
 
