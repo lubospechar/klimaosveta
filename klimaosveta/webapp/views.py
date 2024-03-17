@@ -1,8 +1,11 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, View
 from django.shortcuts import redirect
-from webapp.models import BasicSite, Course, Lector
+from webapp.models import BasicSite, Course, Lector, CourseParticipant
 from webapp.forms import ContactForm
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+from django.utils.timezone import now
+
 
 class Home(TemplateView):
     template_name = 'webapp/home.html'
@@ -69,3 +72,11 @@ class LectorListView(ListView):
         context = super().get_context_data(**kwargs)
         context['basic_site'] = BasicSite.objects.get(name='lectors')
         return context
+
+class ConfirmEmailView(View):
+    def get(self, request, *args, **kwargs):
+        confirmation_code = kwargs.get('confirmation_code')
+        participant = get_object_or_404(CourseParticipant, confirmation_code=confirmation_code, confirm=False, confirmation_code_expires__gte=now())
+        participant.confirm = True
+        participant.save()
+        return HttpResponse('Email byl úspěšně potvrzen.')

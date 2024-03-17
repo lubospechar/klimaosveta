@@ -1,6 +1,8 @@
 from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
+import uuid
+
 class BasicSite(models.Model):
     name = models.CharField()
     title = models.CharField()
@@ -94,15 +96,17 @@ class CourseDetail(models.Model):
         verbose_name_plural = "Jednotlivé kurzy"
 
 class CourseParticipant(models.Model):
-    region = models.ForeignKey('CourseDetail', on_delete=models.CASCADE, verbose_name="Kraj")
+    course_detail = models.ForeignKey('CourseDetail', on_delete=models.CASCADE, verbose_name="Kurz")
     first_name = models.CharField(max_length=255, verbose_name="Jméno")
     last_name = models.CharField(max_length=255, verbose_name="Příjmení")
     email = models.EmailField(verbose_name="E-mail")
     phone = models.CharField(max_length=255, verbose_name="Telefon")
+    confirmation_code = models.UUIDField(default=uuid.uuid4, editable=False)
+    confirmation_code_expires = models.DateTimeField(null=True, blank=True)
     confirm = models.BooleanField(default=False, verbose_name="Potvrzeno")
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.region}"
+        return f"{self.first_name} {self.last_name} - {self.course_detail.region}"
 
     class Meta:
         verbose_name = "Účastník kurzu"
