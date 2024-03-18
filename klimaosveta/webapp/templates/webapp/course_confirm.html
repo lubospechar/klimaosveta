@@ -1,0 +1,22 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+
+
+<div class="section center">
+    <h1>Registrace na kurz &lsquo;{{ participant.course_detail.course.headline }}&rsquo; pro {{ participant.course_detail.region }}.</h1>
+
+    <p>Na Vámi zadanou emailovou adresu byl odeslán ověřovací email, který prosím potvrďte.</p>
+
+     <a href="{% url 'home' %}" class="basicbutton bluebutton">Zpět na titulní stránku</a>
+
+</div>
+
+
+
+
+
+{% endblock %}

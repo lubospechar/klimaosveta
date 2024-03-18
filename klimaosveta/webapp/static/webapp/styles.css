@@ -265,6 +265,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     width: 100%; /* Zajistí, že textarea zaujímá celou šířku */
+    margin-top: 10px;
 }
 
 .half-width {
@@ -276,8 +277,11 @@ a:hover {
     margin-right: 0; /* Odstraní okraj na pravé straně posledního prvku */
 }
 
+
+
 #contact-form input[type="text"],
 #contact-form input[type="email"],
+#contact-form input[type="number"],
 #contact-form textarea {
     width: 100%; /* Zajistí, že všechny vstupní prvky zaujímají celou dostupnou šířku */
     padding: 0.5rem;
@@ -396,6 +400,11 @@ a:hover {
 
 .marginleft10 {
   margin-left: 10vw;
+}
+
+
+a:visited path {
+  fill: #fffcf7
 }
 
 

@@ -107,7 +107,6 @@ class CourseDetailAdmin(admin.ModelAdmin):
     search_fields = ('region__name', 'course__name', 'lector__name')
     inlines = [CourseParticipantInline]
 
-
 @admin.register(CourseParticipant)
 class CourseParticipantAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'course_detail', 'email', 'phone', 'confirm')

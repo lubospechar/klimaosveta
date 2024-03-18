@@ -91,9 +91,19 @@ class CourseDetail(models.Model):
     def __str__(self):
         return f"{self.region.name} - {self.date}"
 
+
+    def is_full(self):
+        """Vrátí True, pokud je kurz plně obsazen, jinak False."""
+        return self.current_capacity >= self.max_capacity
+
+    def available_seats(self):
+        """Vrátí počet dostupných míst."""
+        return self.max_capacity - self.current_capacity
+
     class Meta:
         verbose_name = "Jednotlivý kurz"
         verbose_name_plural = "Jednotlivé kurzy"
+        ordering = ['date']
 
 class CourseParticipant(models.Model):
     course_detail = models.ForeignKey('CourseDetail', on_delete=models.CASCADE, verbose_name="Kurz")

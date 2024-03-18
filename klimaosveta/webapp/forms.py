@@ -1,6 +1,5 @@
 from django import forms
-from webapp.models import Message
-
+from webapp.models import Message, CourseParticipant
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Message
@@ -14,4 +13,17 @@ class ContactForm(forms.ModelForm):
             'name': '',
             'email': '',
             'message': '',
+        }
+
+
+class CourseParticipantForm(forms.ModelForm):
+    class Meta:
+        model = CourseParticipant
+        fields = ['first_name', 'last_name', 'email', 'phone']
+
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'Jméno', 'label': ''}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Příjmení', 'label': ''}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Email', 'label': ''}),
+            'phone': forms.NumberInput(attrs={'placeholder': 'Telefonní číslo', 'label': ''}),
         }
