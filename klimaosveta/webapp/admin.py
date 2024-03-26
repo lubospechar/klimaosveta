@@ -109,7 +109,7 @@ class CourseDetailAdmin(admin.ModelAdmin):
 
 @admin.register(CourseParticipant)
 class CourseParticipantAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'course_detail', 'email', 'phone', 'confirm')
+    list_display = ('first_name', 'last_name', 'course_detail', 'email', 'phone', 'note', 'confirm')
     list_filter = ('course_detail__region', 'confirm')
     search_fields = ('first_name', 'last_name', 'email')
     readonly_fields = ('confirmation_code', 'confirmation_code_expires')
