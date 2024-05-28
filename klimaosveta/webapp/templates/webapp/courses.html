@@ -22,7 +22,9 @@
         {% else %}
             <div class="text-section">
                 <h2>{{ course.headline }}</h2>
-                <div>{{ course.html|safe }}</div>
+                <div>{{ course.html|safe }}
+                <p><a href="{{ course.program.url }}">Program ke stažení (pdf)</a></p>
+                </div>
             </div>
             <div class="image-section">
                 <img src="{{ course.image_optimal.url }}" alt="{{ course.headline }}" />
