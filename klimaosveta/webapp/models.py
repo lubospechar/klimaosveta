@@ -32,6 +32,7 @@ class Course(models.Model):
         format='JPEG',
         options={'quality': 80}
     )
+    program = models.FileField(upload_to='program/')
 
     def __str__(self):
         return f'{self.shortcut} - {self.headline}'
@@ -87,6 +88,7 @@ class CourseDetail(models.Model):
     lector = models.ForeignKey('Lector', on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Lektor")
     max_capacity = models.PositiveIntegerField(verbose_name="Maximální kapacita")
     current_capacity = models.PositiveIntegerField(verbose_name="Aktuální obsazenost")
+    spaces = models.CharField(verbose_name="Prostory", null=True, blank=True)
 
     def __str__(self):
         return f"{self.region.name} - {self.date}"

@@ -54,7 +54,7 @@ class CourseAdmin(admin.ModelAdmin):
     readonly_fields = ('image_optimal_preview',)
     fieldsets = (
         (None, {
-            'fields': ('headline', 'html', 'image', 'shortcut', 'image_on_left', 'order', 'image_optimal_preview'),
+            'fields': ('headline', 'html', 'image', 'shortcut', 'image_on_left', 'order', 'image_optimal_preview', 'program',),
         }),
     )
 

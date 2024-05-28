@@ -3,30 +3,8 @@
 {% block title %}{{ page.title }}{% endblock %}
 
 {% block content %}
+
+
 {{ page.html|safe }}
 
-
-    {% if form %}
-
-
-
-    <div class="contact-form">
-    <form id="contact-form" method="post">
-        {% csrf_token %}
-        <div class="form-row">
-            <div class="form-field half-width">
-                {{ form.name }}
-            </div>
-            <div class="form-field half-width">
-                {{ form.email }}
-            </div>
-        </div>
-        <div class="form-field">
-            {{ form.message }}
-        </div>
-        <button class="basicbutton graybutton" type="submit">Odeslat</button>
-    </form>
-    </div>
-    </div>
-    {% endif %}
 {% endblock %}

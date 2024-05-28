@@ -177,7 +177,7 @@ a:hover {
 }
 
 .link-lecture img  {
-  height: 25vw;
+  height: 18vw;
 }
 
 .link-logo img  {
@@ -408,3 +408,17 @@ a:visited path {
 }
 
 
+.space {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    min-height: 20vw;
+}
+
+.adress {
+    min-height: 3vw;
+}
+
+.region_detail {
+    margin-top: 0;
+    padding-top: 0;
+}
