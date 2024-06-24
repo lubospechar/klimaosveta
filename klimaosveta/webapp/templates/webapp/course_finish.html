@@ -7,9 +7,12 @@
 
 
 <div class="section center">
-    <h1>Registrace na kurz &lsquo;{{ participant.course_detail.course.headline }}&rsquo; pro {{ participant.course_detail.region }}.</h1>
+    <h1>Byl jste přihlášen na kurz:</h1>
 
-    <p>Děkujeme za potvrzení Vaší účasti na semináři.</p>
+<h2>{{ course.course.headline }} pro {{ course.region }}</h2>
+<h2>V termínu {{ course.date }}, 09:00 – 15:00</h2>
+
+    <p>Děkujeme.</p>
 
      <a href="{% url 'home' %}" class="basicbutton bluebutton">Zpět na titulní stránku</a>
 

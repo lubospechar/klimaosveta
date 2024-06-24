@@ -115,7 +115,7 @@ class CourseParticipant(models.Model):
     phone = models.CharField(max_length=255, verbose_name="Telefon")
     confirmation_code = models.UUIDField(default=uuid.uuid4, editable=False)
     confirmation_code_expires = models.DateTimeField(null=True, blank=True)
-    confirm = models.BooleanField(default=False, verbose_name="Potvrzeno")
+    confirm = models.BooleanField(default=True, verbose_name="Potvrzeno")
     note = models.TextField(null=True, blank=True, verbose_name="Poznámka")
 
     def __str__(self):

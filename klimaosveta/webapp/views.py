@@ -105,4 +105,4 @@ class CourseRegisterView(View):
             participant.course_detail = get_object_or_404(CourseDetail, pk=kwargs['pk'])
             participant.save()
             return render(request, 'webapp/course_confirm.html', {'participant': participant})
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form, 'course': course.participant.course_detail})
