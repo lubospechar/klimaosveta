@@ -1,0 +1,45 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+
+
+<div class="section center">
+<h1>Přihlášení na kurz</h1>
+<h2>{{ course_detail.course.headline }} pro {{ course_detail.region }}</h2>
+<h2>V termínu {{ course_detail.date }}, 09:00 – 15:00</h2>
+<div class="contact-form">
+<form id="contact-form" method="post">
+    {% csrf_token %}
+    <div class="form-field">
+      {{ form.first_name }}
+    </div>
+    <div class="form-field">
+      {{ form.last_name }}
+    </div>
+    <div class="form-field">
+      {{ form.email }}
+    </div>
+    <div class="form-field">
+      {{ form.phone }}
+    </div>
+      <div class="form-field">
+      {{ form.note }}
+    </div>
+
+    <button class="basicbutton graybutton" type="submit">Odeslat</button>
+</form>
+</div>
+
+{% comment %}
+<div class="section center margintop-10">
+   <p>Po odeslání formuláře dostanete ověřovací email, který potvrďte.</p>
+</div>
+{% endcomment %}
+
+
+
+
+{% endblock %}

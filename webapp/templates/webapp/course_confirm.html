@@ -1,0 +1,36 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+
+{% comment %}
+<div class="section center">
+    <h1>Registrace na kurz &lsquo;{{ participant.course_detail.course.headline }}&rsquo; pro {{ participant.course_detail.region }}.</h1>
+
+    <p>Na Vámi zadanou emailovou adresu byl odeslán ověřovací email, který prosím potvrďte.</p>
+
+     <a href="{% url 'home' %}" class="basicbutton bluebutton">Zpět na titulní stránku</a>
+
+</div>
+
+{% endcomment %}
+
+<div class="section center">
+    <h1>Byl jste přihlášen na kurz:</h1>
+
+<h2>{{ participant.course_detail.course.headline }}&rsquo; pro {{ participant.course_detail.region }}.</h1></h2>
+<h2>V termínu {{ participant.course_detail.course.date }}, 09:00 – 15:00</h2>
+
+    <p>Děkujeme.</p>
+
+     <a href="{% url 'home' %}" class="basicbutton bluebutton">Zpět na titulní stránku</a>
+
+</div>
+
+
+
+
+
+{% endblock %}

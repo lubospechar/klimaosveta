@@ -1,0 +1,28 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}{{ basic_site.title }}{% endblock %}
+
+{% block content %}
+
+{{ basic_site.html|safe }}
+
+{% for lector in lectors %}
+<div class="section center margintop10">
+    <div class="lector-content">
+        {% if lector.image_optimal %}
+            <div class="lector-image">
+                <img src="{{ lector.image_optimal.url }}" alt="{{ lector.name }}" style="width: 100%; height: auto;">
+            </div>
+        {% endif %}
+        <div class="lector-text">
+            <h3>{{ lector.name }}</h3>
+            {{ lector.about|safe }}
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+
+
+{% endblock %}

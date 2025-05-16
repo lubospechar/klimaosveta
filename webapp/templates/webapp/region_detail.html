@@ -1,0 +1,45 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}Termíny kurzů pro {{ region.name }}{% endblock %}
+
+{% block content %}
+
+<div class="section center">
+    <h1>Termíny kurzů pro {{ region.name }}</h1>
+
+
+
+
+  <div class="link-container region_detail">
+  {% for course_detail in region.coursedetail_set.all %}
+      <div class="link-lecture">
+          <h2>{{ course_detail.course.headline }}</h2>
+          <p>{{ course_detail.date }}</p>
+          <p>09:00 – 15:00</p>
+          <p><a href="{{ course_detail.course.program.url }}">Program ke stažení (pdf)</a></p>
+          <p class="adress">{% if course_detail.spaces %}{{ course_detail.spaces|safe }}{% endif %}</p>
+          {% if course_detail.is_full %}
+             <p>Kurz je plně obsazen.</p>
+          {% else %}
+             <p>K dispozici je {{ course_detail.available_seats }} míst z celkových {{ course_detail.max_capacity }}.</p>
+        {% endif %}
+
+
+          <a href="{% url 'register_course' course_detail.pk %}">
+              <img src="{{ course_detail.course.image_optimal.url }}" alt="">
+              <p><button class="basicbutton bluebutton">Registrace na kurz</button></p>
+          </a>
+          <p class="space">{% if not course_detail.spaces %}V současné době ještě není zajištěn prostor<br /> pro realizaci semináře.<br /> Jakmile bude prostor zajištěn, <br />bude Vám adresa konání zaslána<br /> na Vaši mailovou adresu.{% endif %}</p>
+      </div>
+{% empty %}
+    <p>V tomto kraji nyní nejsou plánovány žádné kurzy.</p>
+      {% endfor %}
+
+
+
+
+</div>
+
+
+
+{% endblock %}
