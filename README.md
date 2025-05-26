@@ -20,5 +20,4 @@ soupsieve==2.7
 sqlparse==0.5.3
 typing_extensions==4.13.2
 webencodings==0.5.1
-
 ```
