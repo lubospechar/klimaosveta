@@ -59,15 +59,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Create extra_static dir if missing
+        run: mkdir -p "$EXTRA_STATIC"
+
       - name: Wait for PostgreSQL to be ready
         run: |
-          until pg_isready -h $DATABASE_HOST -p $DATABASE_PORT -U $DATABASE_USER; do
+          until pg_isready -h "$DATABASE_HOST" -p "$DATABASE_PORT" -U "$DATABASE_USER"; do
             echo "Waiting for PostgreSQL..."
             sleep 2
           done
 
       - name: Run migrations
         run: python manage.py migrate
+
+      - name: Collect static files
+        run: python manage.py collectstatic --noinput
+
+      - name: Run Django checks
+        run: python manage.py check --deploy --fail-level WARNING
 
       - name: Run tests
         run: python manage.py test
