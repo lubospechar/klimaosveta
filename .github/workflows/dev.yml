@@ -25,7 +25,7 @@ jobs:
           --health-retries 5
 
     env:
-      DJANGO_SETTINGS_MODULE: myproject.settings
+      DJANGO_SETTINGS_MODULE: klimaosveta.settings
       POSTGRES_DB: django
       POSTGRES_USER: django
       POSTGRES_PASSWORD: django
