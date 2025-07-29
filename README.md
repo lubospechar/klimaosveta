@@ -3,11 +3,21 @@
 Pro spuštění tohoto projektu je třeba nainstalovat následující balíčky:
 
 ```
-asgiref==3.7.2
-Django==5.0.2
+asgiref==3.8.1
+beautifulsoup4==4.13.4
+Django==5.2.1
+django-appconf==1.1.0
 django-codemirror2==0.2
-psycopg==3.1.18
+django-htmlmin==0.11.0
+django-imagekit==5.0.0
+html5lib==1.1
+pilkit==3.0
+pillow==11.2.1
+psycopg==3.2.9
 python-decouple==3.8
-sqlparse==0.4.4
-typing_extensions==4.9.0
+six==1.17.0
+soupsieve==2.7
+sqlparse==0.5.3
+typing_extensions==4.13.2
+webencodings==0.5.1
 ```
