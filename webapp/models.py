@@ -125,3 +125,15 @@ class CourseParticipant(models.Model):
         verbose_name = "Účastník kurzu"
         verbose_name_plural = "Účastníci kurzu"
 
+
+class FinalCourseParticipant(models.Model):
+    first_name = models.CharField(max_length=255, verbose_name="Jméno")
+    last_name = models.CharField(max_length=255, verbose_name="Příjmení")
+    email = models.EmailField(verbose_name="E-mail")
+    phone = models.CharField(max_length=255, verbose_name="Telefon")
+    note = models.TextField(null=True, blank=True, verbose_name="Poznámka")
+
+    class Meta:
+        verbose_name = "Účastník závěrečného kurzu"
+        verbose_name_plural = "Účastnici závěrečného kurzu"
+        ordering = ['last_name', 'first_name']

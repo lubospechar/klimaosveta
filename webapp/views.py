@@ -1,9 +1,8 @@
 from django.views.generic import TemplateView, ListView, DetailView, View
 from django.shortcuts import redirect
 from webapp.models import BasicSite, Course, Lector, CourseParticipant, Region, CourseDetail
-from webapp.forms import ContactForm, CourseParticipantForm
+from webapp.forms import ContactForm, CourseParticipantForm, FinalCourseParticipantForm
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
 from django.utils.timezone import now
 
 
@@ -106,3 +105,23 @@ class CourseRegisterView(View):
             participant.save()
             return render(request, 'webapp/course_confirm.html', {'participant': participant})
         return render(request, self.template_name, {'form': form, 'course': course.participant.course_detail})
+
+
+class FinalCourseView(View):
+    form_class = FinalCourseParticipantForm
+    template_name = 'webapp/final_course_register.html'
+
+    def get(self, request, *args, **kwargs):
+            form = self.form_class()
+            return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            participant = form.save(commit=False)
+            participant.save()
+            return render(request, 'webapp/final_course_finish.html', {'participant': participant})
+        return render(request, self.template_name, {'form': form})
+
+
+
