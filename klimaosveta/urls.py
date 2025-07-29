@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
-from webapp.views import Home, CourseListView, LectorListView, AboutView, RegionView, ConfirmEmailView, RegionDetailView, CourseRegisterView
+from webapp.views import Home, CourseListView, LectorListView, AboutView, RegionView, ConfirmEmailView, RegionDetailView, CourseRegisterView, FinalCourseView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,4 +14,5 @@ urlpatterns = [
     path('confirm-email/<uuid:confirmation_code>/', ConfirmEmailView.as_view(), name='confirm_email'),
     path('kurzy/<slug:slug>/', RegionDetailView.as_view(), name='region-detail'),
     path('prihlaseni-na-kurz/<int:pk>/', CourseRegisterView.as_view(), name='register_course'),
+    path('zaverecny-kurz', FinalCourseView.as_view(), name='final_course')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

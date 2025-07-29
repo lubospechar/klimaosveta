@@ -3,7 +3,7 @@ from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
 from django.contrib.flatpages.models import FlatPage
 from django import forms
 from codemirror2.widgets import CodeMirrorEditor
-from webapp.models import BasicSite, Message, Course, Lector, Region, CourseDetail, CourseParticipant
+from webapp.models import BasicSite, Message, Course, Lector, Region, CourseDetail, CourseParticipant, FinalCourseParticipant
 from django.utils.html import format_html
 from imagekit.admin import AdminThumbnail
 
@@ -113,3 +113,9 @@ class CourseParticipantAdmin(admin.ModelAdmin):
     list_filter = ('course_detail__region', 'confirm')
     search_fields = ('first_name', 'last_name', 'email')
     readonly_fields = ('confirmation_code', 'confirmation_code_expires')
+
+
+@admin.register(FinalCourseParticipant)
+class FinalCourseParticipantAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'email', 'phone')
+    search_fields = ('first_name', 'last_name', 'email')
