@@ -132,6 +132,8 @@ class FinalCourseParticipant(models.Model):
     email = models.EmailField(verbose_name="E-mail")
     phone = models.CharField(max_length=255, verbose_name="Telefon")
     note = models.TextField(null=True, blank=True, verbose_name="Poznámka")
+    day_1 = models.BooleanField(default=True, verbose_name="Termín 25.9.")
+    day_2 = models.BooleanField(default=True, verbose_name="Termín 26.9.")
 
     class Meta:
         verbose_name = "Účastník závěrečného kurzu"

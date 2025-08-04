@@ -117,5 +117,6 @@ class CourseParticipantAdmin(admin.ModelAdmin):
 
 @admin.register(FinalCourseParticipant)
 class FinalCourseParticipantAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email', 'phone')
+    list_display = ('first_name', 'last_name', 'email', 'phone', 'day_1', 'day_2')
     search_fields = ('first_name', 'last_name', 'email')
+    list_filter = ('day_1', 'day_2')

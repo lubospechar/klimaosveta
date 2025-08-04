@@ -13,6 +13,7 @@
 </h2>
     <ul><li>25.9.2025 Přednášky</li><li>26.9.2025 Terénní exurze</li></ul><br />
 
+<p>Pokud se nemůžete zůčastnit kurzů v plnném rozsahu, označtě to prosím ve spodní části formuláře.</p><br />
     <h2>
         V prostorách ENKI o.p.s., Dukelská 145, Třeboň
     </h2>
@@ -34,6 +35,29 @@
       <div class="form-field">
       {{ form.note }}
     </div>
+
+  <table style="width: 100%; border-collapse: collapse;">
+    <tr>
+        <td style="font-size: 20px; font-weight: bold; color: #333; padding: 10px; text-align: right;">
+            Zúčastním se termínu: 25.9. (Přednášky)
+        </td>
+        <td style="padding: 10px; text-align: left;">
+            {{ form.day_1 }}
+        </td>
+    </tr>
+    <tr>
+        <td style="font-size: 20px; font-weight: bold; color: #333; padding: 10px; text-align: right;">
+            Zúčastním se termínu: 26.9. (Exurze)
+        </td>
+        <td style="padding: 10px; text-align: left;">
+            {{ form.day_2 }}
+        </td>
+    </tr>
+</table>
+
+
+
+
 
     <button class="basicbutton graybutton" type="submit">Odeslat</button>
 </form>

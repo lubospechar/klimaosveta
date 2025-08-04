@@ -34,7 +34,7 @@ class CourseParticipantForm(forms.ModelForm):
 class FinalCourseParticipantForm(forms.ModelForm):
     class Meta:
         model = FinalCourseParticipant
-        fields = ['first_name', 'last_name', 'email', 'phone', 'note',]
+        fields = ['first_name', 'last_name', 'email', 'phone', 'note', 'day_1', 'day_2',]
 
         widgets = {
             'first_name': forms.TextInput(attrs={'placeholder': 'Jméno', 'label': ''}),
@@ -42,4 +42,6 @@ class FinalCourseParticipantForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'placeholder': 'Email', 'label': ''}),
             'phone': forms.NumberInput(attrs={'placeholder': 'Telefonní číslo', 'label': ''}),
             'note': forms.Textarea(attrs={'placeholder': 'Poznámka', 'label': ''}),
+            'day_1': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'day_2': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
